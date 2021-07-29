@@ -62,6 +62,8 @@ const Graph = {
      * graphOption.angleDirection: Boolean - Set angle direction of graph
      *  - true:  clockwise
      *  - false: counterclockwise
+     * 
+     * graphOption.roundGraph: Boolean - Round-ended bar graph
      */
     
     drawGraph(canvasElement, graphOption = {}) {
