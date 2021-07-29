@@ -128,4 +128,4 @@ Graph.drawGraph("#canvas", {
 
 
 ## License
-마음껏 사용하셔도 됩니다! 그 대신, 코드나 결과물에 `Powerㄷd By DEVELOPER_DECUPLE`라고 써주시면 됩니다.
+마음껏 사용하셔도 됩니다! 그 대신, 코드나 결과물에 `Powered By DEVELOPER_DECUPLE`라고 써주시면 됩니다.
