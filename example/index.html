@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+    <div class="graph" style="position: relative;">
+      <canvas id="canvas" width="600" height="400"></canvas>
+      <div style="display: flex; flex-direction: column; position: absolute; text-align: center; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+        <h3>Red is..</h3>
+        <h1 style="font-size: 55px"></h1>
+      </div>
+    </div>
+  </div>
+  <script src="../src/EGraph.js"></script>
+</body>
+</html>
+<script>
+  Graph.drawGraph("#canvas", {
+    
+    data: [10, 30, 50, 70, 90, 110],
+    type: "donut",
+    
+    r: 200,
+    innerR: 120,
+
+    color: ['tomato', 'orange', 'gold', 'yellowgreen', 'royalblue', 'mediumpurple']
+
+  });
+
+  document.querySelector('h1').innerHTML = `
+    ${ Math.round(10 / 360 * 100) } 
+    <span style="font-size: 14px"> %</span>
+  `;
+</script>
