@@ -126,6 +126,47 @@ Graph.drawGraph("#canvas", {
 });
 ```
 
+### 보너스
+![image](https://user-images.githubusercontent.com/64447484/127450442-646139c7-13ed-44ae-a62e-17c43e587615.png)
+```js
+Graph.drawGraph("#canvas", {
+    
+   data: [0, 500, 100, 600, 200, 700],
+   xAxisData: ["하나", "둘", "셋", "넷", "다섯", "여섯"],
+   type: "barVertical",
+
+   background: true,
+   dataLabel: true,
+
+   roundGraph: true,
+
+   dotType: "circle",
+   dataRable: true,
+
+   color: "tomato",
+   textColor: "white",
+
+   yScale: 0.4,
+   marginLeft: 70
+
+ });
+ Graph.drawGraph("#canvas", {
+
+   data: [0, 500, 100, 600, 200, 700],
+   xAxisData: ["", "", "", "", "", ""],
+   type: "bezierLine",
+
+   background: true,
+
+   color: "tomato",
+   textColor: "white",
+
+   yScale: 0.4,
+   marginLeft: 70
+
+ });
+  ```
+
 
 ## License
 마음껏 사용하셔도 됩니다! 그 대신, 코드나 결과물에 `Powered By DEVELOPER_DECUPLE`라고 써주시면 됩니다.
