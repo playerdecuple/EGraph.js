@@ -59,6 +59,8 @@ const Graph = {
      * 
      * graphOption.innerR: Number - Radius of inner circle graph (Only works for donut graph)
      * 
+     * graphOption.innerCircleColor: String - Set color of inner circle (Only works for donut graph)
+     * 
      * graphOption.angleDirection: Boolean - Set angle direction of graph
      *  - true:  clockwise
      *  - false: counterclockwise
