@@ -1,7 +1,7 @@
 # EGraph.js! 
 > Draw Graph Easier!
 
-EGraph.js는 HTML의 `canvas`를 이용하여 **쉽게 그래프를 그릴 수 있도록 도와주는 라이브러리**입니다!
+EGraph.js는 HTML의 `canvas`를 이용하여 **쉽게 그래프를 그릴 수 있도록 도와주는 코드**입니다!
 여러분의 통계 페이지를 빠르게 만들어 보세요! 이 라이브러리는 Vanilla JS로 프론트엔드를 위해 작성되었습니다.
 
 ### Requirements
