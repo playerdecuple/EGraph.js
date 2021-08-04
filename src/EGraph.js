@@ -8,7 +8,7 @@
  *     - Include '2ZGrpah.js : Powered by DEVELOPER_DECUPLE' in your code or output.
  *     - The following are allowed:
  *       * Allow everything (However, sales are excluded.)
- *  # Version : 1.0-Snapshot
+ *  # Version : 1.0.1
  */
 
 
@@ -55,6 +55,8 @@ const Graph = {
      * 
      * graphOption.dataLabel: Boolean - Show data label.
      * 
+     * graphOption.dataLabelToLocaleString: Boolean - Show data label locale string.
+     * 
      * graphOption.r: Number - Radius of circle graph (Only works for circle graph)
      * 
      * graphOption.innerR: Number - Radius of inner circle graph (Only works for donut graph)
@@ -66,6 +68,8 @@ const Graph = {
      *  - false: counterclockwise
      * 
      * graphOption.roundGraph: Boolean - Round-ended bar graph
+     * 
+     * graphOption.backgroundMargin: Number - Margin of background-line
      */
     
     drawGraph(canvasElement, graphOption = {}) {
@@ -92,13 +96,32 @@ const Graph = {
         switch (graphOption.type) {
             case "barVertical": 
                 if (graphOption.background == true) {
-                    for (let i = canvas.height - 30; i > 0; i -= (canvas.height * graphOption.yScale) / 3) {
+                    let backgroundCount = 0;
+                    for (let i = canvas.height - 30; i > 0; i -= graphOption.backgroundMargin ? graphOption.backgroundMargin : (canvas.height * graphOption.yScale) / 3) {
                         context.beginPath();
-                        context.strokeStyle = "#ddd";
+                        if (backgroundCount == 0
+                            && typeof graphOption.backgroundColor == 'object') {
+                            
+                            context.storkeStyle = graphOption.backgroundColor.length > 1
+                                ? graphOption.backgroundColor[1]
+                                : graphOption.backgroundColor[0]
+
+                        } else {
+
+                            context.strokeStyle = graphOption.backgroundColor
+                                ? (typeof graphOption.backgroundColor == "object"
+                                        ? graphOption.backgroundColor[0]
+                                        : graphOption.backgroundColor
+                                  )
+                                : "#ddd";
+
+                        }
                         context.moveTo(0, i);
                         context.lineTo(canvas.width, i);
                         context.stroke();
                         context.closePath();
+
+                        backgroundCount++;
                     }
                 }
 
@@ -128,7 +151,10 @@ const Graph = {
 
                     if (graphOption.dataLabel == true) {
                         context.font = `13px ${graphOption.font.split(" ")[1]}`;
-                        context.fillText(v, x, y - 10);
+                        context.fillText(
+                            graphOption.dataLabelToLocaleString
+                            ? v.toLocaleString()
+                            : v, x, y - 10);
                     }
 
                     context.closePath();
@@ -136,13 +162,32 @@ const Graph = {
                 break;
             case "barHorizon":
                 if (graphOption.background == true) {
+                    let backgroundCount = 0;
                     for (let i = 70; i < canvas.width; i += (canvas.width * graphOption.yScale) / 3) {
                         context.beginPath();
-                        context.strokeStyle = "#ddd";
+                        if (backgroundCount == 0
+                            && typeof graphOption.backgroundColor == 'object') {
+                            
+                            context.storkeStyle = graphOption.backgroundColor.length > 1
+                                ? graphOption.backgroundColor[1]
+                                : graphOption.backgroundColor[0]
+
+                        } else {
+
+                            context.strokeStyle = graphOption.backgroundColor
+                                ? (typeof graphOption.backgroundColor == "object"
+                                        ? graphOption.backgroundColor[0]
+                                        : graphOption.backgroundColor
+                                  )
+                                : "#ddd";
+
+                        }
                         context.moveTo(i, 0);
                         context.lineTo(i, canvas.height);
                         context.stroke();
                         context.closePath();
+
+                        backgroundCount++;
                     }
                 }
 
@@ -172,7 +217,10 @@ const Graph = {
 
                     if (graphOption.dataLabel == true) {
                         context.font = `13px ${graphOption.font.split(" ")[1]}`;
-                        context.fillText(v, h + 90 + (graphOption.barWidth / 2), x + graphOption.barWidth);
+                        context.fillText(
+                            graphOption.dataLabelToLocaleString
+                            ? v.toLocaleString()
+                            : v, h + 90 + (graphOption.barWidth / 2), x + graphOption.barWidth);
                     }
 
                     context.closePath();
@@ -239,13 +287,32 @@ const Graph = {
                 
             case "bezierLine":
                 if (graphOption.background == true) {
-                    for (let i = canvas.height - 30; i > 0; i -= (canvas.height * graphOption.yScale) / 3) {
+                    let backgroundCount = 0;
+                    for (let i = canvas.height - 30; i > 0; i -= graphOption.backgroundMargin ? graphOption.backgroundMargin : (canvas.height * graphOption.yScale) / 3) {
                         context.beginPath();
-                        context.strokeStyle = "#ddd";
+                        if (backgroundCount == 0
+                            && typeof graphOption.backgroundColor == 'object') {
+                            
+                            context.storkeStyle = graphOption.backgroundColor.length > 1
+                                ? graphOption.backgroundColor[1]
+                                : graphOption.backgroundColor[0]
+
+                        } else {
+
+                            context.strokeStyle = graphOption.backgroundColor
+                                ? (typeof graphOption.backgroundColor == "object"
+                                        ? graphOption.backgroundColor[0]
+                                        : graphOption.backgroundColor
+                                  )
+                                : "#ddd";
+
+                        }
                         context.moveTo(0, i);
                         context.lineTo(canvas.width, i);
                         context.stroke();
                         context.closePath();
+
+                        backgroundCount++;
                     }
                 }
 
@@ -276,7 +343,10 @@ const Graph = {
                     if (graphOption.font) context.font = graphOption.font;
                     if (graphOption.dataLabel == true) {
                         context.font = `13px ${graphOption.font.split(" ")[1]}`;
-                        context.fillText(v, x, y - 10);
+                        context.fillText(
+                            graphOption.dataLabelToLocaleString
+                            ? v.toLocaleString()
+                            : v, x, y - 10);
                     }
                     
 
@@ -310,13 +380,32 @@ const Graph = {
 
             case "line":
                 if (graphOption.background == true) {
-                    for (let i = canvas.height - 30; i > 0; i -= (canvas.height * graphOption.yScale) / 3) {
+                    let backgroundCount = 0;
+                    for (let i = canvas.height - 30; i > 0; i -= graphOption.backgroundMargin ? graphOption.backgroundMargin : (canvas.height * graphOption.yScale) / 3) {
                         context.beginPath();
-                        context.strokeStyle = "#ddd";
+                        if (backgroundCount == 0
+                            && typeof graphOption.backgroundColor == 'object') {
+                            
+                            context.storkeStyle = graphOption.backgroundColor.length > 1
+                                ? graphOption.backgroundColor[1]
+                                : graphOption.backgroundColor[0]
+
+                        } else {
+
+                            context.strokeStyle = graphOption.backgroundColor
+                                ? (typeof graphOption.backgroundColor == "object"
+                                        ? graphOption.backgroundColor[0]
+                                        : graphOption.backgroundColor
+                                  )
+                                : "#ddd";
+
+                        }
                         context.moveTo(0, i);
                         context.lineTo(canvas.width, i);
                         context.stroke();
                         context.closePath();
+
+                        backgroundCount++;
                     }
                 }
 
@@ -350,7 +439,10 @@ const Graph = {
                     if (graphOption.dataLabel == true) {
                         context.textAlign = "center";
                         context.font = `13px ${graphOption.font.split(" ")[1]}`;
-                        context.fillText(v, x, y - 10);
+                        context.fillText(
+                            graphOption.dataLabelToLocaleString
+                            ? v.toLocaleString()
+                            : v, x, y - 10);
                     }
 
 
