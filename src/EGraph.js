@@ -5,7 +5,7 @@
  * 
  * "DRAW GRAPHS EASIER" : EGraph.js
  *  # License : DECUPLE Library License
- *     - Include '2ZGrpah.js : Powered by DEVELOPER_DECUPLE' in your code or output.
+ *     - Include 'EGrpah.js : Powered by DEVELOPER_DECUPLE' in your code or output.
  *     - The following are allowed:
  *       * Allow everything (However, sales are excluded.)
  *  # Version : 1.0.1
