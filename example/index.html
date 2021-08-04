@@ -6,13 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
+<body style="background-color: black">
   <div class="wrap" style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
     <div class="graph" style="position: relative;">
       <canvas id="canvas" width="600" height="400"></canvas>
-      <div style="display: flex; flex-direction: column; position: absolute; text-align: center; left: 50%; top: 50%; transform: translate(-50%, -50%);">
-        <h3>Red is..</h3>
-        <h1 style="font-size: 55px"></h1>
+      <div style="display: flex; flex-direction: column; position: absolute; text-align: center;">
+
       </div>
     </div>
   </div>
@@ -22,18 +21,38 @@
 <script>
   Graph.drawGraph("#canvas", {
     
-    data: [10, 30, 50, 70, 90, 110],
-    type: "donut",
-    
-    r: 200,
-    innerR: 120,
+    data: [0, 500, 100, 600, 200, 700],
+    xAxisData: ["하나", "둘", "셋", "넷", "다섯", "여섯"],
+    type: "barVertical",
 
-    color: ['tomato', 'orange', 'gold', 'yellowgreen', 'royalblue', 'mediumpurple']
+    background: true,
+    dataLabel: true,
+
+    roundGraph: true,
+    
+    dotType: "circle",
+    dataRable: true,
+
+    color: "tomato",
+    textColor: "white",
+
+    yScale: 0.4,
+    marginLeft: 70,
+
+    backgroundMargin: 120
 
   });
+  Graph.drawGraph("#canvas", {
+    
+    data: [0, 500, 100, 600, 200, 700],
+    xAxisData: ["", "", "", "", "", ""],
+    type: "bezierLine",
 
-  document.querySelector('h1').innerHTML = `
-    ${ Math.round(10 / 360 * 100) } 
-    <span style="font-size: 14px"> %</span>
-  `;
+    color: "tomato",
+    textColor: "white",
+
+    yScale: 0.4,
+    marginLeft: 70
+
+  });
 </script>
